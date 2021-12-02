@@ -9,7 +9,7 @@ const Error: NextPage = () => {
     return (
         <>
             <p>
-                This is an error page, it also has access to store: <code>{app}</code>
+                This is an error page, it also has access to store: <code>{JSON.stringify(app)}</code>
             </p>
             <nav>
                 <Link href="/">

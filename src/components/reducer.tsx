@@ -2,8 +2,8 @@ import {AnyAction} from 'redux';
 import {HYDRATE} from 'next-redux-wrapper';
 
 export interface State {
-    app: string;
-    page: string;
+    app: any;
+    page: any;
 }
 
 const reducer = (state: State = {app: 'init', page: 'init'}, action: AnyAction) => {

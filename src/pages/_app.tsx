@@ -7,7 +7,14 @@ class WrappedApp extends App<AppInitialProps> {
     public static getInitialProps = (context: any) =>
         wrapper.getInitialAppProps(store => async ({Component, ctx}: AppContext) => {
 
-            const initRun = typeof window === "undefined" && !ctx.req?.url?.startsWith("/_next/data") && !ctx.req?.url?.startsWith("/_next/static")
+            const initRun = typeof window === "undefined" && !ctx.req?.url?.startsWith("/_next/data") && !ctx.req?.url?.startsWith("/_next/static") && !ctx.req?.url?.startsWith("/_next/webpack-hmr")
+
+            console.log("App.getInitialProps running",{
+                window_undefined: typeof window === "undefined",
+                req_present: ctx.req ? 1 : 0,
+                req_url: ctx.req?.url,
+                init_run: initRun,
+            })
 
             if(initRun) {
 
